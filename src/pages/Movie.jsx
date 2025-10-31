@@ -1,25 +1,29 @@
-// src/pages/Movie.jsx
 import React from "react";
+import NavBar from "../components/NavBar";
+import { movies } from "../data";
 import { useParams } from "react-router-dom";
-import { movies } from "../data.jsx";
 
-function Movie() {
+export default function Movie() {
   const { id } = useParams();
-  const movie = movies.find((m) => m.id === parseInt(id));
+  const movie = movies.find(m => String(m.id) === String(id));
 
-  if (!movie) return <p>Movie not found!</p>;
+  if (!movie) return (
+    <main>
+      <NavBar />
+      <h1>Movie not found</h1>
+    </main>
+  );
 
   return (
-    <div>
+    <main>
+      <NavBar />
       <h1>{movie.title}</h1>
-      <p>{movie.time}</p>
+      <p>{movie.time} minutes</p>
       <div>
-        {movie.genres.map((genre, index) => (
-          <span key={index}>{genre} </span>
+        {movie.genres.map((g) => (
+          <span key={g} style={{marginRight: "6px"}}>{g}</span>
         ))}
       </div>
-    </div>
+    </main>
   );
 }
-
-export default Movie;

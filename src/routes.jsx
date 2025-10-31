@@ -1,16 +1,32 @@
-// src/routes.jsx
-import Home from "./pages/Home.jsx";
-import Actors from "./pages/Actors.jsx";
-import Directors from "./pages/Directors.jsx";
-import Movie from "./pages/Movie.jsx";
-import ErrorPage from "./pages/ErrorPage.jsx";
+// src/routes.js
+import React from "react";
+import Home from "./pages/Home";
+import Directors from "./pages/Directors";
+import Actors from "./pages/Actors";
+import Movie from "./pages/Movie";
+import ErrorPage from "./pages/ErrorPage";
 
 const routes = [
-  { path: "/", element: <Home /> },
-  { path: "/actors", element: <Actors /> },
-  { path: "/directors", element: <Directors /> },
-  { path: "/movie/:id", element: <Movie /> },
-  { path: "*", element: <ErrorPage /> },
+  {
+    path: "/",
+    element: <Home />,
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: "/directors",
+    element: <Directors />,
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: "/actors",
+    element: <Actors />,
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: "/movie/:id",
+    element: <Movie />,
+    errorElement: <ErrorPage />,
+  },
 ];
 
 export default routes;

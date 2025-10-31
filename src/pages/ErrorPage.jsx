@@ -1,8 +1,12 @@
 // src/pages/ErrorPage.jsx
 import React from "react";
+import NavBar from "../components/NavBar";
 
-function ErrorPage() {
-  return <h1>404 Error: Page Not Found</h1>;
+export default function ErrorPage() {
+  return (
+    <main>
+      <NavBar />
+      <h1>Oops! Looks like something went wrong.</h1>
+    </main>
+  );
 }
-
-export default ErrorPage;

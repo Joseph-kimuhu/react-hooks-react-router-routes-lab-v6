@@ -1,25 +1,26 @@
-// src/pages/Actors.jsx
 import React from "react";
-import { actors } from "../data.jsx";
+import NavBar from "../components/NavBar";
+import { actors } from "../data";
 
-function Actors() {
+export default function Actors() {
   return (
-    <div>
+    <main>
+      <NavBar />
+
       <h1>Actors Page</h1>
-      <ul>
-        {actors.map((actor) => (
-          <li key={actor.id}>
-            {actor.name}
-            <ul>
-              {actor.movies.map((movie, index) => (
-                <li key={index}>{movie}</li>
-              ))}
-            </ul>
-          </li>
-        ))}
-      </ul>
-    </div>
+
+      {actors.map((actor) => (
+        <article key={actor.name}>
+          <h2>{actor.name}</h2>
+          <ul>
+            {actor.movies.map((title) => (
+              <li key={title}>{title}</li>
+            ))}
+          </ul>
+        </article>
+      ))}
+    </main>
   );
 }
 
-export default Actors;
+
